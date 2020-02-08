@@ -1,4 +1,6 @@
-
+/*
+Authors: Rios Rios, Sam Blawski, Jake Spievak
+*/
 
 
 CREATE TABLE student
@@ -34,3 +36,13 @@ CREATE TABLE student
       CONSTRAINT academic_program PRIMARY KEY (student_id, start_date, name,code),
       CONSTRAINT academic_program_enrollment_fk FOREIGN KEY (student_id, start_date) REFERENCES enrollment (student_id, start_date)
     );
+    
+INSERT INTO student(first_name, last_name, student_id, major, minor, phone, street, zip)
+    VALUES ('John', 'Doe', 09442165, 'Computer Science', 'History', '5553452123', 'Bellflower Blvd.', '95031');
+
+INSERT INTO enrollment(student_id, start_date, end_date, graduation_level)
+    VALUES (09442165, '2020-04-23', '2022-07-11', 'Undergraduate');
+
+INSERT INTO academic_program(student_id, start_date, name, code, program_level, department, required_units, description)
+    VALUES (09442165, '2020-04-23', 'Oceanography', '342', 'Major', 'Geography', 124, 'Oceanic Geography');
+    
